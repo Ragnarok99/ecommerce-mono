@@ -1,7 +1,9 @@
 import * as React from 'react';
 
-const Button = ({children}) => (
-  <button className="" type="button">
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+
+const Button: React.FC<ButtonProps> = ({ children, color }) => (
+  <button className={color} type="button">
     {children}
   </button>
 );

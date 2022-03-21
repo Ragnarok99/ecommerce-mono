@@ -8,6 +8,7 @@ import { ShoppingBagIcon } from '@heroicons/react/outline';
 import { Button } from 'ui';
 
 import logoSrc from '../assets/logo.svg';
+import Swiper from '../components/Swiper';
 
 const people = [
   { name: 'Wade Cooper' },
@@ -98,6 +99,10 @@ const Home: NextPage = () => {
           </div>
         </div>
       </nav>
+
+      <div className="h-[400px]">
+        <Swiper />
+      </div>
     </div>
   );
 };
