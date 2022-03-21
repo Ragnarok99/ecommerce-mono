@@ -1,5 +1,8 @@
 import React from 'react';
 import type { NextPage } from 'next';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import Image from 'next/image';
 import { Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, SelectorIcon, SearchIcon } from '@heroicons/react/solid';
@@ -20,6 +23,8 @@ const people = [
 ];
 
 const Home: NextPage = () => {
+  const { t } = useTranslation();
+
   const [selected, setSelected] = React.useState(people[0]);
 
   return (
@@ -28,7 +33,7 @@ const Home: NextPage = () => {
         <div className="flex items-center gap-12">
           <Image src={logoSrc} alt="logo" width={95} height={30} />
           <ul className="flex gap-3">
-            <li>text1</li>
+            <li>{t('title')}</li>
             <li>text2</li>
             <li>text3</li>
             <li>text4</li>
@@ -106,5 +111,13 @@ const Home: NextPage = () => {
     </div>
   );
 };
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
+}
 
 export default Home;
