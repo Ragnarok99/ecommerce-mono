@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-const Button = () => (
-  <button className="bg-red-400" type="button">
-    Boop123
+const Button = ({children}) => (
+  <button className="" type="button">
+    {children}
   </button>
 );
 
