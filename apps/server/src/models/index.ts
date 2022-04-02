@@ -1,1 +1,1 @@
-export {};
+export * as ProductModel from './Product';

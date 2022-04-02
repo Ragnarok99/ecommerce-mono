@@ -1,1 +1,1 @@
-export {};
+export * as ProductSchema from './Product';
