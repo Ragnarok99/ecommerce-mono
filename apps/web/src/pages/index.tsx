@@ -10,7 +10,7 @@ import { ShoppingBagIcon } from '@heroicons/react/outline';
 
 import { Button } from 'ui';
 
-import logoSrc from '../assets/logo.svg';
+import logoSrc from '../assets/svgs/logo.svg';
 import Swiper from '../components/Swiper';
 
 const people = [
