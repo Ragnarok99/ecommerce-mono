@@ -19,22 +19,31 @@ import { Pagination, Autoplay } from 'swiper';
 
 const Slider: React.FC = () => (
   <Swiper
-  slidesPerView={"auto"}
-  centeredSlides={true}
-  spaceBetween={30}
-  loop={true}
-  autoplay={{
-    delay: 2800,
-  }}
-  pagination={{
-    clickable: true,
-  }}
-  modules={[Pagination, Autoplay]}
-  className="mySwiper"
->
-  <SwiperSlide><Image src={slider3}/><div className="activa_hover"></div></SwiperSlide>
-  <SwiperSlide><Image src={slider2}/><div className="activa_hover"></div></SwiperSlide>
-  <SwiperSlide><Image src={slider1}/><div className="activa_hover"></div></SwiperSlide>
-</Swiper>
+    slidesPerView={'auto'}
+    centeredSlides
+    spaceBetween={30}
+    loop
+    autoplay={{
+      delay: 2800,
+    }}
+    pagination={{
+      clickable: true,
+    }}
+    modules={[Pagination, Autoplay]}
+    className="mySwiper"
+  >
+    <SwiperSlide>
+      <Image src={slider3} />
+      <div className="activa_hover" />
+    </SwiperSlide>
+    <SwiperSlide>
+      <Image src={slider2} />
+      <div className="activa_hover" />
+    </SwiperSlide>
+    <SwiperSlide>
+      <Image src={slider1} />
+      <div className="activa_hover" />
+    </SwiperSlide>
+  </Swiper>
 );
 export default Slider;
