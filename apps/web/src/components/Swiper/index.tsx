@@ -4,22 +4,21 @@ import React from 'react';
 import Image from 'next/image';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+// import required modules
+import { Pagination, Autoplay } from 'swiper';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-//Import Slider Images
+// Import Slider Images
 import slider1 from '../../assets/images/slider1.png';
 import slider2 from '../../assets/images/slider2.png';
 import slider3 from '../../assets/images/slider3.png';
 
-// import required modules
-import { Pagination, Autoplay } from 'swiper';
-
 const Slider: React.FC = () => (
   <Swiper
-    slidesPerView={'auto'}
+    slidesPerView="auto"
     centeredSlides
     spaceBetween={30}
     loop
