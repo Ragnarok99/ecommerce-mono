@@ -50,6 +50,9 @@ const remove = async (req: Request, res: Response) => {
   try {
     const productId = req.params.id;
 
+    if (!mongoose.Types.ObjectId.isValid(productId))
+      return res.status(400).send({ message: 'id must be a string ObjectId' });
+
     const product = await Product.findByIdAndRemove(productId);
 
     if (!product) return res.status(404).send({ message: 'Product not found' });
