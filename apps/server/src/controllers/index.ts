@@ -1,1 +1,1 @@
-export * as ProductControllers from './Product';
+export * as ProductController from './Product';

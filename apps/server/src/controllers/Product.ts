@@ -28,4 +28,18 @@ const create = async (req: Request, res: Response) => {
   }
 };
 
-export { getAll, create };
+const getById = async (req: Request, res: Response) => {
+  try {
+    const productId = req.params.id;
+
+    const product = await Product.findById(productId);
+
+    if (!product) return res.status(404).send({ message: 'Product not found' });
+
+    return res.status(201).send(product);
+  } catch (errors) {
+    return res.status(500).send({ message: errors });
+  }
+};
+
+export { getAll, create, getById };
