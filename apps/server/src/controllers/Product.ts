@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import mongoose from 'mongoose';
 
 import Product from '../models/Product';
 
@@ -31,6 +32,9 @@ const create = async (req: Request, res: Response) => {
 const getById = async (req: Request, res: Response) => {
   try {
     const productId = req.params.id;
+
+    if (!mongoose.Types.ObjectId.isValid(productId))
+      return res.status(400).send({ message: 'id must be a string ObjectId' });
 
     const product = await Product.findById(productId);
 
