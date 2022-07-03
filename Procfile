@@ -1,2 +1,1 @@
-web: cd ./apps/server && npm start
-build: npx turbo run build --filter=server
+web: npx turbo run build --filter=server && cd ./apps/server && npm start
