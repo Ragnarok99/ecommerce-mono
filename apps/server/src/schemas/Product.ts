@@ -17,6 +17,7 @@ const ProductSchema = new Schema({
     type: String,
     required: true,
   },
+  categories: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
 });
 
 export default ProductSchema;

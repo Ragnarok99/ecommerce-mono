@@ -17,6 +17,7 @@ const CategorySchema = new Schema({
     type: Date,
     default: new Date(),
   },
+  products: [{ type: Schema.Types.ObjectId, ref: 'Product' }],
 });
 
 export default CategorySchema;
