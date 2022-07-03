@@ -1,14 +1,15 @@
+/* eslint-disable import/no-duplicates */
 import Image from 'next/image';
 
-import banner1 from '../../../assets/images/banner-1.png';
-import banner2 from '../../../assets/images/banner-2.png';
-import banner3 from '../../../assets/images/banner-3.png';
-import banner4 from '../../../assets/images/banner-4.png';
-import banner5 from '../../../assets/images/banner-5.png';
-import banner6 from '../../../assets/images/banner-6.png';
+import banner1 from '../../../assets/images/slider1.png';
+import banner2 from '../../../assets/images/slider1.png';
+import banner3 from '../../../assets/images/slider1.png';
+import banner4 from '../../../assets/images/slider1.png';
+import banner5 from '../../../assets/images/slider1.png';
+import banner6 from '../../../assets/images/slider1.png';
 
 const HeaderGrids = () => (
-  <div className="mx-auto mb-12 grid max-w-[1920px] grid-cols-2 gap-2 px-2.5 sm:grid-cols-9 md:mb-14 md:gap-2.5 xl:mb-16">
+  <div className="mx-auto mb-12 grid max-w-[1920px] grid-cols-2 gap-2 sm:grid-cols-9 md:mb-14 md:gap-2.5 xl:mb-16">
     <div className="col-span-full sm:col-span-5">
       <a className="group relative flex h-full overflow-hidden" href="/">
         <Image
