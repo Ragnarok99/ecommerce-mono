@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import BaseLayout from 'src/layouts/BaseLayout';
-import HeaderGrids from 'src/components/Home/HeaderGrids';
-import OffersCarousel from 'src/components/Home/OffersCarousel';
+import BaseLayout from '../layouts/BaseLayout';
+import HeaderGrids from '../components/Home/HeaderGrids';
+import OffersCarousel from '../components/Home/OffersCarousel';
 
 const Home: NextPage = () => (
   <BaseLayout>

@@ -1,11 +1,11 @@
 import Image from 'next/image';
 
-import banner1 from 'src/assets/images/banner-1.png';
-import banner2 from 'src/assets/images/banner-2.png';
-import banner3 from 'src/assets/images/banner-3.png';
-import banner4 from 'src/assets/images/banner-4.png';
-import banner5 from 'src/assets/images/banner-5.png';
-import banner6 from 'src/assets/images/banner-6.png';
+import banner1 from '../../../assets/images/banner-1.png';
+import banner2 from '../../../assets/images/banner-2.png';
+import banner3 from '../../../assets/images/banner-3.png';
+import banner4 from '../../../assets/images/banner-4.png';
+import banner5 from '../../../assets/images/banner-5.png';
+import banner6 from '../../../assets/images/banner-6.png';
 
 const HeaderGrids = () => (
   <div className="mx-auto mb-12 grid max-w-[1920px] grid-cols-2 gap-2 px-2.5 sm:grid-cols-9 md:mb-14 md:gap-2.5 xl:mb-16">
