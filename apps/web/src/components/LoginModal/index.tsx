@@ -1,5 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
+import { Button } from 'ui';
 
 const MyModal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,13 +15,13 @@ const MyModal = () => {
 
   return (
     <>
-      <button
+      <Button
         type="button"
         onClick={openModal}
         className="px-4 py-2 text-sm font-medium text-gray-700 xl:text-base"
       >
         Sign in
-      </button>
+      </Button>
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
