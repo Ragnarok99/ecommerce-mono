@@ -7,7 +7,6 @@ import {
   SearchIcon,
   ShoppingBagIcon,
 } from '@heroicons/react/solid';
-// import { Button } from 'ui';
 
 import LoginModal from '../components/LoginModal';
 
