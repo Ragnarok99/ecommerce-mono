@@ -7,7 +7,8 @@ import {
   SearchIcon,
   ShoppingBagIcon,
 } from '@heroicons/react/solid';
-import { Button } from 'ui';
+
+import LoginModal from '../components/LoginModal';
 
 import logoSrc from '../assets/svgs/logo.svg';
 
@@ -101,7 +102,7 @@ const BaseLayout: React.FC = ({ children }) => {
               </div>
             </Listbox>
             <SearchIcon className="h-6 w-6 text-gray-400" />
-            <Button>Sign in</Button>
+            <LoginModal />
             <div>
               <ShoppingBagIcon className="h-6 w-6 text-gray-400" />
             </div>
