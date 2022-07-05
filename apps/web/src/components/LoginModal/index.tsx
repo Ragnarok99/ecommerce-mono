@@ -18,7 +18,7 @@ const MyModal = () => {
       <Button
         type="button"
         onClick={openModal}
-        className="px-4 py-2 text-sm font-medium text-gray-700 xl:text-base"
+        className="px-6 py-2 text-sm font-medium text-gray-700 xl:text-base"
       >
         Sign in
       </Button>

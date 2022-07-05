@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Listbox, Transition } from '@headlessui/react';
 import { useTranslation } from 'next-i18next';
-import { Button } from 'ui';
+import { Button, Drawer } from 'ui';
 import {
   SelectorIcon,
   ShoppingBagIcon,
@@ -27,17 +27,26 @@ const BaseLayout: React.FC = ({ children }) => {
   const { t } = useTranslation();
 
   const [selected, setSelected] = React.useState(counties[0]);
+  const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
+
+  console.log({ isDrawerOpen });
+
+  const handleDrawerNextValue = (newModalState: boolean) => () =>
+    setIsDrawerOpen(newModalState);
 
   return (
     <>
-      <header className="relative z-10 h-16 w-full px-4 sm:h-20 lg:h-24 lg:px-10">
+      <header className="relative h-16 w-full px-4 sm:h-20 lg:h-24 lg:px-10">
         <div className="mx-auto flex h-full w-full max-w-[1920px] items-center justify-between gap-2 lg:gap-6">
-          <Button className="hidden h-12 w-12 md:block lg:hidden">
+          <Button
+            onClick={handleDrawerNextValue(true)}
+            className="mr-2 hidden h-8 w-8 md:block lg:hidden"
+          >
             <MenuAlt1Icon />
           </Button>
           <Link href="/" passHref>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a className="inline-flex w-full focus:outline-none lg:w-auto">
+            <a className="inline-flex w-auto focus:outline-none">
               <Image
                 src={logoSrc}
                 alt="logo"
@@ -59,7 +68,7 @@ const BaseLayout: React.FC = ({ children }) => {
           </nav>
           <Listbox value={selected} onChange={setSelected}>
             <div className="relative flex flex-shrink-0 md:mx-auto">
-              <Listbox.Button className="relative cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+              <Listbox.Button className="relative cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left text-sm shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300">
                 <div className="flex items-center gap-2">
                   <Image
                     src={`https://countryflagsapi.com/png/${selected.code}`}
@@ -83,7 +92,7 @@ const BaseLayout: React.FC = ({ children }) => {
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
               >
-                <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                   {counties.map(country => (
                     <Listbox.Option
                       key={country.name}
@@ -121,17 +130,20 @@ const BaseLayout: React.FC = ({ children }) => {
             </div>
           </Listbox>
           <div className="space-s-6 lg:space-s-5 xl:space-s-8 2xl:space-s-10 ms-auto hidden flex-shrink-0 items-center justify-end md:flex">
-            <SearchIcon className="h-6 w-6 text-gray-400" />
+            <SearchIcon className="w-[22px] text-gray-400" />
             <LoginModal />
             <div>
-              <ShoppingBagIcon className="h-6 w-6 text-gray-400" />
+              <ShoppingBagIcon className="w-[22px] text-gray-400" />
             </div>
           </div>
         </div>
       </header>
       <main className="relative flex-grow">{children}</main>
-      <div className="fixed bottom-0 z-10 flex h-14 w-full items-center justify-between bg-white px-4 text-gray-700 shadow-[0_-2px_3px_rgba(0,0,0,0.6)] shadow-[0_-2px_3px_rgba(0,0,0,0.06)] sm:h-16 md:hidden">
-        <Button className="flex w-[22px] flex-shrink-0 flex-col items-center justify-center outline-none focus:outline-none">
+      <div className="fixed bottom-0 flex h-14 w-full items-center justify-between bg-white px-4 text-gray-700 shadow-[0_-2px_3px_rgba(0,0,0,0.6)] shadow-[0_-2px_3px_rgba(0,0,0,0.06)] sm:h-16 md:hidden">
+        <Button
+          onClick={handleDrawerNextValue(true)}
+          className="flex w-[22px] flex-shrink-0 flex-col items-center justify-center outline-none focus:outline-none"
+        >
           <MenuAlt1Icon className="h-full w-full" />
         </Button>
         <Button className="flex w-[22px] flex-shrink-0 flex-col items-center justify-center outline-none focus:outline-none">
@@ -147,6 +159,9 @@ const BaseLayout: React.FC = ({ children }) => {
           <UserIcon />
         </Button>
       </div>
+      <Drawer isOpen={isDrawerOpen} onClose={handleDrawerNextValue(false)}>
+        hola
+      </Drawer>
     </>
   );
 };
