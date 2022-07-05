@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Listbox, Transition } from '@headlessui/react';
 import { useTranslation } from 'next-i18next';
-import { Button, Drawer } from 'ui';
+import { Button } from 'ui';
 import {
   SelectorIcon,
   ShoppingBagIcon,
@@ -14,9 +14,10 @@ import {
   UserIcon,
 } from '@heroicons/react/outline';
 
-import LoginModal from '../components/LoginModal';
+import LoginModal from 'src/components/LoginModal';
+import logoSrc from 'src/assets/svgs/logo.svg';
 
-import logoSrc from '../assets/svgs/logo.svg';
+import { SidebarDrawer } from './components';
 
 const counties = [
   { name: 'Español - ES', code: 'es' },
@@ -28,8 +29,6 @@ const BaseLayout: React.FC = ({ children }) => {
 
   const [selected, setSelected] = React.useState(counties[0]);
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
-
-  console.log({ isDrawerOpen });
 
   const handleDrawerNextValue = (newModalState: boolean) => () =>
     setIsDrawerOpen(newModalState);
@@ -159,9 +158,10 @@ const BaseLayout: React.FC = ({ children }) => {
           <UserIcon />
         </Button>
       </div>
-      <Drawer isOpen={isDrawerOpen} onClose={handleDrawerNextValue(false)}>
-        hola
-      </Drawer>
+      <SidebarDrawer
+        isOpen={isDrawerOpen}
+        onClose={handleDrawerNextValue(false)}
+      />
     </>
   );
 };

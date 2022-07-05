@@ -10,14 +10,13 @@ interface DrawerProps {
   onClose?: () => void;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Drawer = ({
   isOpen,
   className = '',
   children,
   onClose = () => {},
 }: DrawerProps) => {
-  const handleBackdrop = () => {
+  const handleOverlayClick = () => {
     onClose();
   };
   return (
@@ -31,7 +30,7 @@ const Drawer = ({
             leave="transition-opacity ease-in-out duration-300"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
-            onClick={handleBackdrop}
+            onClick={handleOverlayClick}
           >
             <div
               role="presentation"
