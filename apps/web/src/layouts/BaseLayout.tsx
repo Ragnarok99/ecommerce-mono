@@ -6,10 +6,13 @@ import { useTranslation } from 'next-i18next';
 import { Button } from 'ui';
 import {
   SelectorIcon,
-  SearchIcon,
   ShoppingBagIcon,
   MenuAlt1Icon,
-} from '@heroicons/react/solid';
+  SearchIcon,
+  HomeIcon,
+  ShoppingCartIcon,
+  UserIcon,
+} from '@heroicons/react/outline';
 
 import LoginModal from '../components/LoginModal';
 
@@ -28,13 +31,13 @@ const BaseLayout: React.FC = ({ children }) => {
   return (
     <>
       <header className="relative z-10 h-16 w-full px-4 sm:h-20 lg:h-24 lg:px-10">
-        <div className="mx-auto flex h-full w-full max-w-[1920px] items-center justify-between gap-6">
-          <Button className="block h-12 w-12 lg:hidden">
+        <div className="mx-auto flex h-full w-full max-w-[1920px] items-center justify-between gap-2 lg:gap-6">
+          <Button className="hidden h-12 w-12 md:block lg:hidden">
             <MenuAlt1Icon />
           </Button>
           <Link href="/" passHref>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a className="inline-flex w-full focus:outline-none md:w-auto">
+            <a className="inline-flex w-full focus:outline-none lg:w-auto">
               <Image
                 src={logoSrc}
                 alt="logo"
@@ -127,6 +130,23 @@ const BaseLayout: React.FC = ({ children }) => {
         </div>
       </header>
       <main className="relative flex-grow">{children}</main>
+      <div className="fixed bottom-0 z-10 flex h-14 w-full items-center justify-between bg-white px-4 text-gray-700 shadow-[0_-2px_3px_rgba(0,0,0,0.6)] shadow-[0_-2px_3px_rgba(0,0,0,0.06)] sm:h-16 md:hidden">
+        <Button className="flex w-[22px] flex-shrink-0 flex-col items-center justify-center outline-none focus:outline-none">
+          <MenuAlt1Icon className="h-full w-full" />
+        </Button>
+        <Button className="flex w-[22px] flex-shrink-0 flex-col items-center justify-center outline-none focus:outline-none">
+          <SearchIcon />
+        </Button>
+        <Button className="flex w-[22px] flex-shrink-0 flex-col items-center justify-center outline-none focus:outline-none">
+          <HomeIcon />
+        </Button>
+        <Button className="flex w-[22px] flex-shrink-0 flex-col items-center justify-center outline-none focus:outline-none">
+          <ShoppingCartIcon />
+        </Button>
+        <Button className="flex w-[22px] flex-shrink-0 flex-col items-center justify-center outline-none focus:outline-none">
+          <UserIcon />
+        </Button>
+      </div>
     </>
   );
 };

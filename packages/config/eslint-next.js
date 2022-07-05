@@ -40,6 +40,7 @@ module.exports = {
     '@next/next/no-html-link-for-pages': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/require-default-props': 'off',
   },
   overrides: [
     {
