@@ -15,7 +15,7 @@ import {
 } from '@heroicons/react/outline';
 
 import LoginModal from 'src/components/LoginModal';
-import logoSrc from 'src/assets/svgs/logo.svg';
+import Logo from 'src/assets/svgs/logo.svg';
 
 import { SidebarDrawer } from './components';
 
@@ -44,15 +44,8 @@ const BaseLayout: React.FC = ({ children }) => {
             <MenuAlt1Icon />
           </Button>
           <Link href="/" passHref>
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="inline-flex w-auto focus:outline-none">
-              <Image
-                src={logoSrc}
-                alt="logo"
-                width={95}
-                height={30}
-                layout="fixed"
-              />
+              <Logo />
             </a>
           </Link>
           <nav className="hidden w-full items-center gap-12 py-7 lg:flex">
