@@ -47,7 +47,7 @@ const Drawer = ({
             leaveTo="-translate-x-full"
             className={`absolute left-0 top-0 z-30 h-screen w-full max-w-[450px] bg-white ${className}`}
           >
-            <div>{children}</div>
+            {children}
           </Transition.Child>
         </Transition>
       </div>
