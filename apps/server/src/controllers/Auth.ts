@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
+import Joi from '@hapi/joi';
 import jwt from 'jsonwebtoken';
 
 import User from '../models/User';
@@ -11,6 +12,23 @@ const signup = async (req: Request, res: Response) => {
     const { body } = req;
     const salt = await bcrypt.genSalt(Number(SALT_NUMBER));
     const encryptedPassword = await bcrypt.hash(body.password, salt);
+    const validate2 = Joi.object({
+      firstname: Joi.string().alphanum().min(3).max(30).required(),
+      lastname: Joi.string().alphanum().min(3).max(30).required(),
+      email: Joi.string()
+        .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
+        .required(),
+      username: Joi.string().alphanum().min(3).max(30).required(),
+      password: Joi.string().alphanum().min(6).required(),
+    });
+    const result = await validate2.validate({
+      username: body.username,
+      email: body.email,
+      firstname: body.firstName,
+      lastname: body.lastName,
+      password: body.password,
+    });
+    return res.send({ result });
     const user = new User({
       ...body,
       password: encryptedPassword,
