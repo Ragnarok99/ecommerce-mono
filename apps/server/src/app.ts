@@ -1,5 +1,5 @@
 import bodyParser from 'body-parser';
-import express, { Request, Response } from 'express';
+import express from 'express';
 import morgan from 'morgan';
 
 import 'dotenv/config';
@@ -21,7 +21,9 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(appRoutes);
 //* Error Handler
-app.use((err: any, req: Request, res: Response) => {
+
+// FIXME: This is throwing error
+/* app.use((err: any, req: Request, res: Response) => {
   res.status(err.status || 500);
   res.json({
     error: {
@@ -29,6 +31,6 @@ app.use((err: any, req: Request, res: Response) => {
       message: err.message,
     },
   });
-});
+}); */
 
 export default app;
