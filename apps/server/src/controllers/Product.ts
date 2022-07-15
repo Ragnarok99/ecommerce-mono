@@ -13,6 +13,7 @@ const getAll = async (req: Request, res: Response) => {
 };
 
 const create = async (req: Request, res: Response) => {
+  console.log('Hola');
   try {
     const product = new Product({
       name: req.body.name,

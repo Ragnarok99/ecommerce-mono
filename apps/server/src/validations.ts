@@ -18,6 +18,30 @@ export const signupSchema = Joi.object({
   password: fields.password,
 });
 
+const fieldsColor = {
+  name: Joi.string().alphanum().min(4).max(30).required(),
+  hexcode: Joi.string().alphanum().min(4).max(11).required(),
+};
+
+export const validateColor = Joi.object({
+  name: fieldsColor.name,
+  hexcode: fieldsColor.hexcode,
+});
+
+const fieldsProduct = {
+  name: Joi.string().alphanum().min(3).max(50).required(),
+  price: Joi.number().required(),
+  category: Joi.string().alphanum().min(3).max(20).required(),
+  imageUrl: Joi.string().alphanum().min(2).max(100).required(),
+};
+
+export const validateProduct = Joi.object({
+  name: fieldsProduct.name,
+  price: fieldsProduct.price,
+  category: fieldsProduct.category,
+  imageUrl: fieldsProduct.imageUrl,
+});
+
 export const loginSchema = Joi.object({
   firstName: fields.firstname,
 });
