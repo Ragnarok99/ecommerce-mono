@@ -1,5 +1,5 @@
 import bodyParser from 'body-parser';
-import express from 'express';
+import express, { Request, Response } from 'express';
 import morgan from 'morgan';
 
 import 'dotenv/config';
@@ -20,5 +20,15 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 
 app.use(appRoutes);
+//* Error Handler
+app.use((err: any, req: Request, res: Response) => {
+  res.status(err.status || 500);
+  res.json({
+    error: {
+      status: err.status || 500,
+      message: err.message,
+    },
+  });
+});
 
 export default app;
