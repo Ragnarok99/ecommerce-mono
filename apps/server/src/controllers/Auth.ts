@@ -11,6 +11,7 @@ const signup = async (req: Request, res: Response) => {
     const { body } = req;
     const salt = await bcrypt.genSalt(Number(SALT_NUMBER));
     const encryptedPassword = await bcrypt.hash(body.password, salt);
+
     const user = new User({
       ...body,
       password: encryptedPassword,
