@@ -1,39 +1,44 @@
-import { Dialog, Transition, Switch } from '@headlessui/react';
 import { Fragment, useState } from 'react';
-import { Button } from 'ui';
-
+import { useMutation } from 'react-query';
+import { Dialog, Transition, Switch } from '@headlessui/react';
 import { Field, Form, Formik } from 'formik';
+import { Button } from 'ui';
 
 import GoogleIconSquared from 'src/assets/svgs/GoogleIconSquared.svg';
 import Logo from 'src/assets/svgs/logo.svg';
 import FacebookIconSquared from 'src/assets/svgs/FacebookIconSquared.svg';
 import { loginSchema } from 'src/validations';
+import { login, LoginData } from 'src/api/auth';
 
 import { TextField } from '../TextField';
 
 const MyModal = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const closeModal = () => {
-    setIsOpen(false);
-  };
+  const toggleModal = (nextState: boolean) => () => setIsOpen(nextState);
+  const { mutate } = useMutation(login, {
+    onSuccess(data) {
+      localStorage.setItem('token', data.token);
 
-  const openModal = () => {
-    setIsOpen(true);
+      setIsOpen(false);
+    },
+  });
+  const handleSubmit = (body: LoginData) => {
+    mutate(body);
   };
 
   return (
     <>
       <Button
         type="button"
-        onClick={openModal}
+        onClick={toggleModal(true)}
         className="px-6 py-2 text-sm font-medium text-gray-700 xl:text-base"
       >
         Sign in
       </Button>
 
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+        <Dialog as="div" className="relative z-10" onClose={toggleModal(false)}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -67,16 +72,16 @@ const MyModal = () => {
                     </Dialog.Description>
                   </div>
                   <Formik
-                    initialValues={{}}
-                    onSubmit={() => {}}
+                    initialValues={{ username: '', password: '' }}
+                    onSubmit={handleSubmit}
                     validationSchema={loginSchema}
                     validateOnBlur
                   >
                     {() => (
                       <Form className="flex flex-col gap-4">
                         <Field
-                          name="email"
-                          label="Email"
+                          name="username"
+                          label="Username"
                           component={TextField}
                         />
                         <Field
@@ -103,7 +108,7 @@ const MyModal = () => {
                                   } inline-block h-4 w-4 transform rounded-full bg-white`}
                                 />
                               </Switch>
-                              <Switch.Label className="mr-4 ml-2">
+                              <Switch.Label className="mr-4 ml-2 text-sm">
                                 Remember me
                               </Switch.Label>
                             </Switch.Group>

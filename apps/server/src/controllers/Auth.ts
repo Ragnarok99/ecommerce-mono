@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 
 import User from '../models/User';
 
-const { SALT_NUMBER = 20, TOKEN_SECRET = '' } = process.env;
+const { SALT_NUMBER, TOKEN_SECRET } = process.env;
 
 const signup = async (req: Request, res: Response) => {
   try {
@@ -21,9 +21,9 @@ const signup = async (req: Request, res: Response) => {
 
     await user.save();
 
-    res.status(201).send(user.toJSON());
+    return res.status(201).send(user.toJSON());
   } catch (errors) {
-    res.status(500).send({ message: errors });
+    return res.status(500).send({ message: errors });
   }
 };
 
@@ -49,7 +49,7 @@ const login = async (req: Request, res: Response) => {
         username,
         id: userByUsername.id,
       },
-      TOKEN_SECRET,
+      String(TOKEN_SECRET),
     );
 
     return res.status(200).send({ token });
