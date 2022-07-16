@@ -1,9 +1,10 @@
 import { Dialog, Transition, Switch } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 import { Button, TextField } from 'ui';
-import Image from 'next/image';
 
-import logoSrc from '../../assets/svgs/logo.svg';
+import Logo from 'src/assets/svgs/logo.svg';
+import FacebookIconSquared from 'src/assets/svgs/FacebookIconSquared.svg';
+import GoogleIconSquared from 'src/assets/svgs/GoogleIconSquared.svg';
 
 const MyModal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +55,7 @@ const MyModal = () => {
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-8 text-left align-middle shadow-xl transition-all">
                   <div className="mb-6">
                     <Dialog.Title className="flex flex-col items-center">
-                      <Image src={logoSrc} alt="logo" width={95} height={30} />
+                      <Logo />
                     </Dialog.Title>
                     <Dialog.Description className="mt-3 flex flex-col items-center text-gray-500">
                       Login with your email & password
@@ -104,15 +105,17 @@ const MyModal = () => {
                   </div>
                   <button
                     type="button"
-                    className="bg-facebok mt-4 w-full rounded-md py-3 px-8 text-sm text-white"
+                    className="bg-facebok mt-4 flex w-full items-center justify-center gap-2 rounded-md py-3 px-8 text-sm text-white"
                   >
-                    Login With Facebook
+                    <FacebookIconSquared className="text-base" />
+                    <span>Login With Facebook</span>
                   </button>
                   <button
                     type="button"
-                    className="bg-google mt-2 w-full rounded-md py-3 px-8 text-sm text-white"
+                    className="bg-google mt-2 flex w-full items-center justify-center gap-2 rounded-md py-3 px-8 text-sm text-white"
                   >
-                    Login With Google
+                    <GoogleIconSquared className="text-base" />
+                    <span>Login With Google</span>
                   </button>
                   <div className="mt-6 text-center text-sm text-gray-500 ">
                     Dont have any account?
