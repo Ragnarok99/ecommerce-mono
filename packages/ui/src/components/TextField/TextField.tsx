@@ -2,6 +2,7 @@ import { ChangeEventHandler } from 'react';
 
 interface TextFieldProps {
   value: string;
+  type: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
   label: string;
   name: string;
@@ -12,6 +13,7 @@ const TextField = ({
   onChange,
   label,
   name,
+  type = 'text',
   ...props
 }: TextFieldProps) => (
   <div className="block">
@@ -24,7 +26,7 @@ const TextField = ({
     <input
       id="id"
       name={name}
-      type="text"
+      type={type}
       value={value}
       onChange={onChange}
       className="text-input font-body placeholder-body min-h-12 focus:border-heading h-11 w-full appearance-none rounded-md border border-gray-300 bg-white py-2 px-4 text-xs transition focus:outline-none md:h-12 md:px-5 lg:text-sm"
