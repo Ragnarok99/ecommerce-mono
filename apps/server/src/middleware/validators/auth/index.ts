@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 
-import { signupSchema } from '../../../validations';
+import { signupSchema } from '../../../Validations/User/Auth';
 
 export const signup = async (
   req: Request,
