@@ -1,13 +1,13 @@
-import * as Yup from 'yup'
+import * as Yup from 'yup';
 
 const fields = {
-    email: Yup.string().email().required(),
-    password: Yup.string().required(),
-}
+  username: Yup.string().required(),
+  password: Yup.string().required(),
+};
 
 export const loginSchema = Yup.object().shape({
-    email: fields.email,
-    password: fields.password
-})
+  username: fields.username,
+  password: fields.password,
+});
 
-export const signupSchema = {}
+export const signupSchema = {};

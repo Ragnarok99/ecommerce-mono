@@ -1,6 +1,7 @@
 import bodyParser from 'body-parser';
 import express from 'express';
 import morgan from 'morgan';
+import cors from 'cors';
 
 import 'dotenv/config';
 
@@ -9,6 +10,7 @@ import appRoutes from './routes';
 const app = express();
 
 app.set('port', process.env.PORT || 4000);
+app.use(cors({ origin: '*' }));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));

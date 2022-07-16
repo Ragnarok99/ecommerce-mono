@@ -9,4 +9,6 @@ Create a `.env` file at the root of this folder and provide values for PORT and 
 ```
 ATLAS_MONGO_DB_URI="xxxxxxxxxxxxxxxxxxxxxx"
 PORT=4000
+TOKEN_SECRET=mysecretword
+SALT_NUMBER=2
 ```
