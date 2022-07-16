@@ -9,16 +9,18 @@ import Logo from 'src/assets/svgs/logo.svg';
 import FacebookIconSquared from 'src/assets/svgs/FacebookIconSquared.svg';
 import { loginSchema } from 'src/validations';
 import { login, LoginData } from 'src/api/auth';
+import { useLocalStorage } from 'src/hooks';
 
 import { TextField } from '../TextField';
 
 const MyModal = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { storage, setStorage } = useLocalStorage();
 
   const toggleModal = (nextState: boolean) => () => setIsOpen(nextState);
   const { mutate } = useMutation(login, {
     onSuccess(data) {
-      localStorage.setItem('token', data.token);
+      setStorage('token', data.token);
 
       setIsOpen(false);
     },
@@ -34,7 +36,7 @@ const MyModal = () => {
         onClick={toggleModal(true)}
         className="px-6 py-2 text-sm font-medium text-gray-700 xl:text-base"
       >
-        Sign in
+        {storage.token ? 'Account' : 'Sign in'}
       </Button>
 
       <Transition appear show={isOpen} as={Fragment}>
