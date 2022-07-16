@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 
-import { validateColor } from '../../../validations';
+import { validateColor } from '../../../Validations/Color/Color';
 
 export const create = async (
   req: Request,
