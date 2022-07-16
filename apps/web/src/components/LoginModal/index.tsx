@@ -1,10 +1,15 @@
 import { Dialog, Transition, Switch } from '@headlessui/react';
 import { Fragment, useState } from 'react';
-import { Button, TextField } from 'ui';
+import { Button } from 'ui';
 
+import { Field, Form, Formik } from 'formik';
+
+import GoogleIconSquared from 'src/assets/svgs/GoogleIconSquared.svg';
 import Logo from 'src/assets/svgs/logo.svg';
 import FacebookIconSquared from 'src/assets/svgs/FacebookIconSquared.svg';
-import GoogleIconSquared from 'src/assets/svgs/GoogleIconSquared.svg';
+import { loginSchema } from 'src/validations';
+
+import { TextField } from '../TextField';
 
 const MyModal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,44 +66,61 @@ const MyModal = () => {
                       Login with your email & password
                     </Dialog.Description>
                   </div>
-                  <form>
-                    <TextField label="Email" value="" onChange={() => {}} />
-                    <TextField label="Password" value="" onChange={() => {}} />
-                    <div className="mt-3 flex justify-between">
-                      <div>
-                        <Switch.Group>
-                          <Switch
-                            checked={false}
-                            onChange={() => {}}
-                            className={`${
-                              false ? 'bg-blue-600' : 'bg-gray-200'
-                            } relative inline-flex h-6 w-11 items-center rounded-full`}
-                          >
-                            <span className="sr-only text-sm ">
-                              Enable notifications
-                            </span>
-                            <span
-                              className={`${
-                                false ? 'translate-x-6' : 'translate-x-1'
-                              } inline-block h-4 w-4 transform rounded-full bg-white`}
-                            />
-                          </Switch>
-                          <Switch.Label className="mr-4 ml-2">
-                            Enable notifications
-                          </Switch.Label>
-                        </Switch.Group>
-                      </div>
-                      <button type="button" className="text-sm underline">
-                        Forgot password?
-                      </button>
-                    </div>
-                    <button
-                      type="button"
-                      className="mt-5 w-full rounded-md bg-neutral-800 py-3 px-8 text-sm text-white"
-                    >
-                      Login
-                    </button>
-                  </form>
+                  <Formik
+                    initialValues={{}}
+                    onSubmit={() => {}}
+                    validationSchema={loginSchema}
+                    validateOnBlur
+                  >
+                    {() => (
+                      <Form className="flex flex-col gap-4">
+                        <Field
+                          name="email"
+                          label="Email"
+                          component={TextField}
+                        />
+                        <Field
+                          name="password"
+                          label="Password"
+                          component={TextField}
+                        />
+                        <div className="flex justify-between">
+                          <div className="flex items-center">
+                            <Switch.Group>
+                              <Switch
+                                checked={false}
+                                onChange={() => {}}
+                                className={`${
+                                  false ? 'bg-blue-600' : 'bg-gray-200'
+                                } relative inline-flex h-6 w-11 items-center rounded-full`}
+                              >
+                                <span className="sr-only text-sm ">
+                                  Enable notifications
+                                </span>
+                                <span
+                                  className={`${
+                                    false ? 'translate-x-6' : 'translate-x-1'
+                                  } inline-block h-4 w-4 transform rounded-full bg-white`}
+                                />
+                              </Switch>
+                              <Switch.Label className="mr-4 ml-2">
+                                Remember me
+                              </Switch.Label>
+                            </Switch.Group>
+                          </div>
+                          <button type="button" className="text-sm underline">
+                            Forgot password?
+                          </button>
+                        </div>
+                        <button
+                          type="submit"
+                          className="mt-5 w-full rounded-md bg-neutral-800 py-3 px-8 text-sm text-white"
+                        >
+                          Login
+                        </button>
+                      </Form>
+                    )}
+                  </Formik>
                   <div className="relative mt-6 mb-3.5 flex flex-col items-center justify-center text-sm ">
                     <hr className="w-full border-gray-300" />
                     <span className="absolute -top-2.5 bg-white px-2">Or</span>
