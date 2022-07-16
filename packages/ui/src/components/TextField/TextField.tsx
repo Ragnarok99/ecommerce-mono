@@ -4,9 +4,16 @@ interface TextFieldProps {
   value: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
   label: string;
+  name: string;
 }
 
-const TextField = ({ value, onChange, label }: TextFieldProps) => (
+const TextField = ({
+  value,
+  onChange,
+  label,
+  name,
+  ...props
+}: TextFieldProps) => (
   <div className="block">
     <label
       htmlFor="id"
@@ -16,10 +23,12 @@ const TextField = ({ value, onChange, label }: TextFieldProps) => (
     </label>
     <input
       id="id"
+      name={name}
       type="text"
       value={value}
       onChange={onChange}
       className="text-input font-body placeholder-body min-h-12 focus:border-heading h-11 w-full appearance-none rounded-md border border-gray-300 bg-white py-2 px-4 text-xs transition focus:outline-none md:h-12 md:px-5 lg:text-sm"
+      {...props}
     />
   </div>
 );
