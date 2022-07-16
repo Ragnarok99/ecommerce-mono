@@ -15,6 +15,7 @@ import {
 } from '@heroicons/react/outline';
 
 import LoginModal from 'src/components/LoginModal';
+import { useLocalStorage } from 'src/hooks';
 import Logo from 'src/assets/svgs/logo.svg';
 
 import { SidebarDrawer } from './components';
@@ -29,6 +30,10 @@ const BaseLayout: React.FC = ({ children }) => {
 
   const [selected, setSelected] = React.useState(counties[0]);
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const { storage } = useLocalStorage();
+
+  const toggleModal = (nextState: boolean) => () => setIsModalOpen(nextState);
 
   const handleDrawerNextValue = (newModalState: boolean) => () =>
     setIsDrawerOpen(newModalState);
@@ -123,7 +128,13 @@ const BaseLayout: React.FC = ({ children }) => {
           </Listbox>
           <div className="space-s-6 lg:space-s-5 xl:space-s-8 2xl:space-s-10 ms-auto hidden flex-shrink-0 items-center justify-end md:flex">
             <SearchIcon className="w-[22px] text-gray-400" />
-            <LoginModal />
+            <Button
+              type="button"
+              onClick={toggleModal(true)}
+              className="px-6 py-2 text-sm font-medium text-gray-700 xl:text-base"
+            >
+              {storage.token ? 'Account' : 'Sign in'}
+            </Button>
             <div>
               <ShoppingBagIcon className="w-[22px] text-gray-400" />
             </div>
@@ -155,6 +166,7 @@ const BaseLayout: React.FC = ({ children }) => {
         isOpen={isDrawerOpen}
         onClose={handleDrawerNextValue(false)}
       />
+      <LoginModal isOpen={isModalOpen} onClose={toggleModal(false)} />
     </>
   );
 };
