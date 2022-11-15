@@ -143,7 +143,6 @@ const FlashSale = () => (
                             </p>
                             <div className='font-semibold text-sm sm:text-base mt-1.5 space-s-2 sm:text-xl md:text-base lg:text-xl md:mt-2.5 2xl:mt-3 text-heading'>
                                 <span className='inline-block false'>$600.00</span>
-                                {/* <del className='sm:text-base font-normal text-gray-800 pl-3'>$18.00</del> */}
                             </div>
                         </div>
                     </div>
@@ -166,7 +165,6 @@ const FlashSale = () => (
                             </p>
                             <div className='font-semibold text-sm sm:text-base mt-1.5 space-s-2 sm:text-xl md:text-base lg:text-xl md:mt-2.5 2xl:mt-3 text-heading'>
                                 <span className='inline-block false'>$15.00</span>
-                                {/* <del className='sm:text-base font-normal text-gray-800 pl-3'>$99.99</del> */}
                             </div>
                         </div>
                     </div>
