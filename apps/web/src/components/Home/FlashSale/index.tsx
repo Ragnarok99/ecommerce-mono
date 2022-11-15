@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { FlashSaleComponent } from 'src/components/FlashSale';
 
 import flash1 from 'src/assets/webp/flash-image-1.png';
 import flash2 from 'src/assets/webp/flash-image-2.png';
@@ -35,232 +35,104 @@ const FlashSale = () => (
                     </div>
                 </div>
             </div>
+
             <div className='grid grid-cols-5 grid-rows-2 gap-4'>
-                <div className="group box-border overflow-hidden flex rounded-md cursor-pointer bg-white pe-0 md:pb-1 flex-col items-start">
-                    <div className='flex mb-3 md:mb-3.5 pb-0'>
-                        <a className="group relative flex h-50 overflow-hidden">
-                            <Image className="bg-gray-300 object-cover rounded-s-md rounded-md transition duration-150 ease-linear transform group-hover:scale-105" src={flash1} />
-                        </a>
-                    </div>
 
-                    <div className='w-full overflow-hidden p-2 ps-0'>
-                        <h2 className='truncate mb-1 font-semibold md:mb-1.5 text-sm sm:text-base md:text-sm lg:text-base xl:text-lg text-heading'>
-                            Adidas Shoes Black
-                        </h2>
-                        <p className='text-body text-xs lg:text-sm leading-normal xl:leading-relaxed max-w-[250px] truncate'>
-                            Men Black top sleeveless gown
-                        </p>
-                        <div className='font-semibold text-sm sm:text-base mt-1.5 space-s-2 sm:text-xl md:text-base lg:text-xl md:mt-2.5 2xl:mt-3 text-heading'>
-                            <span className='inline-block false'>$45.00</span>
-                            <del className='sm:text-base font-normal text-gray-800 pl-3'>$99.99</del>
-                        </div>
-                    </div>
-                </div>
+                <FlashSaleComponent
+                    labelTitle='Adidas Shoes Black'
+                    labelDescription='Men Black top sleeveless gown'
+                    labelDiscount='$45.00'
+                    labelPrice='$99.99'
+                    className='col-start-1 row-start-1'
+                    src={flash1}
+                />
 
-                <div className="col-start-2 row-start-1">
-                    <div className="group box-border overflow-hidden flex rounded-md cursor-pointer bg-white pe-0 md:pb-1 flex-col items-start">
-                        <div className='flex mb-3 md:mb-3.5 pb-0'>
-                            <a className="group relative flex h-50 overflow-hidden">
-                                <Image className="bg-gray-300 object-cover rounded-s-md rounded-md transition duration-150 ease-linear transform group-hover:scale-105" src={flash2} />
-                            </a>
-                        </div>
 
-                        <div className='w-full overflow-hidden p-2 ps-0'>
-                            <h2 className='truncate mb-1 font-semibold md:mb-1.5 text-sm sm:text-base md:text-sm lg:text-base xl:text-lg text-heading'>
-                                Armani Wide-Leg Trousers
-                            </h2>
-                            <p className='text-body text-xs lg:text-sm leading-normal xl:leading-relaxed max-w-[250px] truncate'>
-                                Monochrome elegance.
-                            </p>
-                            <div className='font-semibold text-sm sm:text-base mt-1.5 space-s-2 sm:text-xl md:text-base lg:text-xl md:mt-2.5 2xl:mt-3 text-heading'>
-                                <span className='inline-block false'>$12.00</span>
-                                <del className='sm:text-base font-normal text-gray-800 pl-3'>$16.00</del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <FlashSaleComponent
+                    labelTitle=' Armani Wide-Leg Trousers'
+                    labelDescription='Monochrome elegance.'
+                    labelDiscount='$12.00'
+                    labelPrice='$16.00'
+                    className='col-start-2 row-start-1'
+                    src={flash2}
+                />
 
-                <div className="col-start-3 row-start-1">
-                    <div className="group box-border overflow-hidden flex rounded-md cursor-pointer bg-white pe-0 md:pb-1 flex-col items-start">
-                        <div className='flex mb-3 md:mb-3.5 pb-0'>
-                            <a className="group relative flex h-50 overflow-hidden">
-                                <Image className="bg-gray-300 object-cover rounded-s-md rounded-md transition duration-150 ease-linear transform group-hover:scale-105" src={flash3} />
-                            </a>
-                        </div>
 
-                        <div className='w-full overflow-hidden p-2 ps-0'>
-                            <h2 className='truncate mb-1 font-semibold md:mb-1.5 text-sm sm:text-base md:text-sm lg:text-base xl:text-lg text-heading'>
-                                Zara Shoes Green
-                            </h2>
-                            <p className='text-body text-xs lg:text-sm leading-normal xl:leading-relaxed max-w-[250px] truncate'>
-                                Footwear refers to garments worn
-                            </p>
-                            <div className='font-semibold text-sm sm:text-base mt-1.5 space-s-2 sm:text-xl md:text-base lg:text-xl md:mt-2.5 2xl:mt-3 text-heading'>
-                                <span className='inline-block false'>$50.00</span>
-                                {/* <del className='sm:text-base font-normal text-gray-800 pl-3'>$16.00</del> */}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <FlashSaleComponent
+                    labelTitle='Zara Shoes Green'
+                    labelDescription='Footwear refers to garments worn'
+                    labelDiscount='$50.00'
+                    className='col-start-3 row-start-1'
+                    src={flash3}
+                />
 
-                <div className="col-start-4 row-start-1">
-                    <div className="group box-border overflow-hidden flex rounded-md cursor-pointer bg-white pe-0 md:pb-1 flex-col items-start">
-                        <div className='flex mb-3 md:mb-3.5 pb-0'>
-                            <a className="group relative flex h-50 overflow-hidden">
-                                <Image className="bg-gray-300 object-cover rounded-s-md rounded-md transition duration-150 ease-linear transform group-hover:scale-105" src={flash4} />
-                            </a>
-                        </div>
 
-                        <div className='w-full overflow-hidden p-2 ps-0'>
-                            <h2 className='truncate mb-1 font-semibold md:mb-1.5 text-sm sm:text-base md:text-sm lg:text-base xl:text-lg text-heading'>
-                                Wayfarer Sunglasses
-                            </h2>
-                            <p className='text-body text-xs lg:text-sm leading-normal xl:leading-relaxed max-w-[250px] truncate'>
-                                Our optical engineers developed
-                            </p>
-                            <div className='font-semibold text-sm sm:text-base mt-1.5 space-s-2 sm:text-xl md:text-base lg:text-xl md:mt-2.5 2xl:mt-3 text-heading'>
-                                <span className='inline-block false'>$15.00</span>
-                                <del className='sm:text-base font-normal text-gray-800 pl-3'>$18.00</del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <FlashSaleComponent
+                    labelTitle='Wayfarer Sunglasses'
+                    labelDescription='Our optical engineers developed'
+                    labelDiscount='$15.00'
+                    labelPrice='$18.00'
+                    className='col-start-4 row-start-1'
+                    src={flash4}
+                />
 
-                <div className="col-start-5 row-start-1">
-                    <div className="group box-border overflow-hidden flex rounded-md cursor-pointer bg-white pe-0 md:pb-1 flex-col items-start">
-                        <div className='flex mb-3 md:mb-3.5 pb-0'>
-                            <a className="group relative flex h-50 overflow-hidden">
-                                <Image className="bg-gray-300 object-cover rounded-s-md rounded-md transition duration-150 ease-linear transform group-hover:scale-105" src={flash5} />
-                            </a>
-                        </div>
 
-                        <div className='w-full overflow-hidden p-2 ps-0'>
-                            <h2 className='truncate mb-1 font-semibold md:mb-1.5 text-sm sm:text-base md:text-sm lg:text-base xl:text-lg text-heading'>
-                                Tissot Classic
-                            </h2>
-                            <p className='text-body text-xs lg:text-sm leading-normal xl:leading-relaxed max-w-[250px] truncate'>
-                                The new-model Submariner
-                            </p>
-                            <div className='font-semibold text-sm sm:text-base mt-1.5 space-s-2 sm:text-xl md:text-base lg:text-xl md:mt-2.5 2xl:mt-3 text-heading'>
-                                <span className='inline-block false'>$600.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <FlashSaleComponent
+                    labelTitle='Tissot Classic'
+                    labelDescription='The new-model Submariner'
+                    className='col-start-5 row-start-1'
+                    src={flash5}
+                />
 
-                <div className="col-start-1 row-start-2">
-                    <div className="group box-border overflow-hidden flex rounded-md cursor-pointer bg-white pe-0 md:pb-1 flex-col items-start">
-                        <div className='flex mb-3 md:mb-3.5 pb-0'>
-                            <a className="group relative flex h-50 overflow-hidden">
-                                <Image className="bg-gray-300 object-cover rounded-s-md rounded-md transition duration-150 ease-linear transform group-hover:scale-105" src={flash6} />
-                            </a>
-                        </div>
 
-                        <div className='w-full overflow-hidden p-2 ps-0'>
-                            <h2 className='truncate mb-1 font-semibold md:mb-1.5 text-sm sm:text-base md:text-sm lg:text-base xl:text-lg text-heading'>
-                                Hermes Carlton London
-                            </h2>
-                            <p className='text-body text-xs lg:text-sm leading-normal xl:leading-relaxed max-w-[250px] truncate'>
-                                Off-White self-striped knitted midi
-                            </p>
-                            <div className='font-semibold text-sm sm:text-base mt-1.5 space-s-2 sm:text-xl md:text-base lg:text-xl md:mt-2.5 2xl:mt-3 text-heading'>
-                                <span className='inline-block false'>$15.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <FlashSaleComponent
+                    labelTitle='Hermes Carlton London'
+                    labelDescription='Off-White self-striped knitted midi'
+                    labelDiscount='$15.00'
+                    className='col-start-1 row-start-2'
+                    src={flash6}
+                />
 
-                <div className="col-start-2 row-start-2">
-                    <div className="group box-border overflow-hidden flex rounded-md cursor-pointer bg-white pe-0 md:pb-1 flex-col items-start">
-                        <div className='flex mb-3 md:mb-3.5 pb-0'>
-                            <a className="group relative flex h-50 overflow-hidden">
-                                <Image className="bg-gray-300 object-cover rounded-s-md rounded-md transition duration-150 ease-linear transform group-hover:scale-105" src={flash7} />
-                            </a>
-                        </div>
 
-                        <div className='w-full overflow-hidden p-2 ps-0'>
-                            <h2 className='truncate mb-1 font-semibold md:mb-1.5 text-sm sm:text-base md:text-sm lg:text-base xl:text-lg text-heading'>
-                                Polarised Wayfarer Sunglasses
-                            </h2>
-                            <p className='text-body text-xs lg:text-sm leading-normal xl:leading-relaxed max-w-[250px] truncate'>
-                                This item is only exchangeable
-                            </p>
-                            <div className='font-semibold text-sm sm:text-base mt-1.5 space-s-2 sm:text-xl md:text-base lg:text-xl md:mt-2.5 2xl:mt-3 text-heading'>
-                                <span className='inline-block false'>$20.00</span>
-                                <del className='sm:text-base font-normal text-gray-800 pl-3'>$35.00</del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <FlashSaleComponent
+                    labelTitle='Polarised Wayfarer Sunglasses'
+                    labelDescription='This item is only exchangeable'
+                    labelDiscount='$20.00'
+                    labelPrice='$35.00'
+                    className='col-start-2 row-start-2'
+                    src={flash7}
+                />
 
-                <div className="col-start-3 row-start-2">
-                    <div className="group box-border overflow-hidden flex rounded-md cursor-pointer bg-white pe-0 md:pb-1 flex-col items-start">
-                        <div className='flex mb-3 md:mb-3.5 pb-0'>
-                            <a className="group relative flex h-50 overflow-hidden">
-                                <Image className="bg-gray-300 object-cover rounded-s-md rounded-md transition duration-150 ease-linear transform group-hover:scale-105" src={flash8} />
-                            </a>
-                        </div>
 
-                        <div className='w-full overflow-hidden p-2 ps-0'>
-                            <h2 className='truncate mb-1 font-semibold md:mb-1.5 text-sm sm:text-base md:text-sm lg:text-base xl:text-lg text-heading'>
-                                Gucci Carlton UK
-                            </h2>
-                            <p className='text-body text-xs lg:text-sm leading-normal xl:leading-relaxed max-w-[250px] truncate'>
-                                Knitted midi A-line dress
-                            </p>
-                            <div className='font-semibold text-sm sm:text-base mt-1.5 space-s-2 sm:text-xl md:text-base lg:text-xl md:mt-2.5 2xl:mt-3 text-heading'>
-                                <span className='inline-block false'>$14.99</span>
-                                <del className='sm:text-base font-normal text-gray-800 pl-3'>$19.99</del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <FlashSaleComponent
+                    labelTitle='Gucci Carlton UK'
+                    labelDescription='Knitted midi A-line dress'
+                    labelDiscount='$14.00'
+                    labelPrice='$19.00'
+                    className='col-start-3 row-start-2'
+                    src={flash8}
+                />
 
-                <div className="col-start-4 row-start-2">
-                    <div className="group box-border overflow-hidden flex rounded-md cursor-pointer bg-white pe-0 md:pb-1 flex-col items-start">
-                        <div className='flex mb-3 md:mb-3.5 pb-0'>
-                            <a className="group relative flex h-50 overflow-hidden">
-                                <Image className="bg-gray-300 object-cover rounded-s-md rounded-md transition duration-150 ease-linear transform group-hover:scale-105" src={flash9} />
-                            </a>
-                        </div>
 
-                        <div className='w-full overflow-hidden p-2 ps-0'>
-                            <h2 className='truncate mb-1 font-semibold md:mb-1.5 text-sm sm:text-base md:text-sm lg:text-base xl:text-lg text-heading'>
-                                NIKE Shoes
-                            </h2>
-                            <p className='text-body text-xs lg:text-sm leading-normal xl:leading-relaxed max-w-[250px] truncate'>
-                                NIKE 2020 Black White
-                            </p>
-                            <div className='font-semibold text-sm sm:text-base mt-1.5 space-s-2 sm:text-xl md:text-base lg:text-xl md:mt-2.5 2xl:mt-3 text-heading'>
-                                <span className='inline-block false'>$50.00</span>
-                                <del className='sm:text-base font-normal text-gray-800 pl-3'>$80.00</del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <FlashSaleComponent
+                    labelTitle='NIKE Shoes'
+                    labelDescription='NIKE 2020 Black White'
+                    labelDiscount='$50.00'
+                    labelPrice='$80.00'
+                    className='col-start-4 row-start-2'
+                    src={flash9}
+                />
 
-                <div className="col-start-5 row-start-2">
-                    <div className="group box-border overflow-hidden flex rounded-md cursor-pointer bg-white pe-0 md:pb-1 flex-col items-start">
-                        <div className='flex mb-3 md:mb-3.5 pb-0'>
-                            <a className="group relative flex h-50 overflow-hidden">
-                                <Image className="bg-gray-300 object-cover rounded-s-md rounded-md transition duration-150 ease-linear transform group-hover:scale-105" src={flash10} />
-                            </a>
-                        </div>
 
-                        <div className='w-full overflow-hidden p-2 ps-0'>
-                            <h2 className='truncate mb-1 font-semibold md:mb-1.5 text-sm sm:text-base md:text-sm lg:text-base xl:text-lg text-heading'>
-                                Wayfarer Sunglasses
-                            </h2>
-                            <p className='text-body text-xs lg:text-sm leading-normal xl:leading-relaxed max-w-[250px] truncate'>
-                                Our optical engineers developed
-                            </p>
-                            <div className='font-semibold text-sm sm:text-base mt-1.5 space-s-2 sm:text-xl md:text-base lg:text-xl md:mt-2.5 2xl:mt-3 text-heading'>
-                                <span className='inline-block false'>$20.00</span>
-                                <del className='sm:text-base font-normal text-gray-800 pl-3'>$25.00</del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <FlashSaleComponent
+                    labelTitle='Wayfarer Sunglasses'
+                    labelDescription='Our optical engineers developed'
+                    labelDiscount='$20.00'
+                    labelPrice='$25.00'
+                    className='col-start-5 row-start-2'
+                    src={flash10}
+                />
+
             </div >
         </div>
     </div>
