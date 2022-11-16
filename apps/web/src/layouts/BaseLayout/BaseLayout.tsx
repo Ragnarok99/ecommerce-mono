@@ -94,10 +94,9 @@ const BaseLayout: React.FC = ({ children }) => {
                     <Listbox.Option
                       key={country.name}
                       className={({ active }) =>
-                        `relative flex cursor-default select-none items-center gap-2 py-2 pl-4 pr-4 ${
-                          active
-                            ? 'bg-amber-100 text-amber-900'
-                            : 'text-gray-900'
+                        `relative flex cursor-default select-none items-center gap-2 py-2 pl-4 pr-4 ${active
+                          ? 'bg-amber-100 text-amber-900'
+                          : 'text-gray-900'
                         }`
                       }
                       value={country}
@@ -112,9 +111,8 @@ const BaseLayout: React.FC = ({ children }) => {
                             height={15}
                           />
                           <span
-                            className={`block truncate ${
-                              selectedValue ? 'font-medium' : 'font-normal'
-                            }`}
+                            className={`block truncate ${selectedValue ? 'font-medium' : 'font-normal'
+                              }`}
                           >
                             {country.name}
                           </span>
